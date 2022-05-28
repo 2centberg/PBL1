@@ -1,0 +1,2 @@
+D:\project_by_learning\x64\Debug\project_by_learning.exe
+D:\PBL_NDC_DNM\x64\Debug\project_by_learning.exe
