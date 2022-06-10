@@ -139,18 +139,30 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Matrix.cpp" />
+    <ClCompile Include="NonSquare_Matrix.hpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="PBL.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Head.h" />
-    <ClInclude Include="Invalid_Input.h" />
-    <ClInclude Include="Invalid_Matrix.h" />
-    <ClInclude Include="Irreversible.h" />
-    <ClInclude Include="Stack.h" />
-    <ClInclude Include="Square_Matrix.h" />
-    <ClInclude Include="Node.h" />
-    <ClInclude Include="PBL.h" />
+    <ClInclude Include="Invalid_Input.hpp" />
+    <ClInclude Include="Invalid_Matrix.hpp" />
+    <ClInclude Include="Irreversible.hpp" />
+    <ClInclude Include="Node.hpp" />
+    <ClInclude Include="Out_Of_Memory.hpp" />
+    <ClInclude Include="Matrix.hpp" />
+    <ClInclude Include="PBL.hpp" />
+    <ClInclude Include="Queue.hpp" />
+    <ClInclude Include="Too_Large_Matrix.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="intro.txt" />
+    <Text Include="MENU.TXT" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MATRIX.IN" />
+    <None Include="MATRIX.OUT" />
+    <None Include="MATRIX.RAND" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

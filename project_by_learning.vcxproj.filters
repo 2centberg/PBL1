@@ -21,31 +21,59 @@
     <ClCompile Include="PBL.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="NonSquare_Matrix.hpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Node.h">
+    <ClInclude Include="Matrix.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Square_Matrix.h">
+    <ClInclude Include="PBL.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Head.h">
+    <ClInclude Include="Irreversible.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PBL.h">
+    <ClInclude Include="Invalid_Matrix.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Irreversible.h">
+    <ClInclude Include="Invalid_Input.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Stack.h">
+    <ClInclude Include="Out_Of_Memory.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Invalid_Matrix.h">
+    <ClInclude Include="Too_Large_Matrix.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Invalid_Input.h">
+    <ClInclude Include="Queue.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Node.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="intro.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+    <Text Include="MENU.TXT">
+      <Filter>Resource Files</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MATRIX.IN">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="MATRIX.OUT">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="MATRIX.RAND">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

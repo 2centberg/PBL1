@@ -1,28 +1,12 @@
-#include "Square_Matrix.h"
-#include "Irreversible.h"
-#include "Invalid_Matrix.h"
-#include "PBL.h"
+#include "Matrix.hpp"
 int main()
-{	
-	Square_Matrix<double> MT;
-	try
-	{
-		Query();
-		MT.Init();
-	}
-	catch (const Invalid_Matrix &ex)
-	{
-		std::cout << ex.what() << std::endl;
-		return 0;
-	}
-	try
-	{
-		MT.Reverse();
-		MT.Display();
-	}
-	catch (const Irreversible &ex)
-	{
-		std::cerr << "\t\t" << ex.what();
-	}
+{
+	system("COLOR 0F");
+	system("mode con COLS=700");
+	ShowWindow(GetConsoleWindow(), SW_MAXIMIZE);
+	SendMessage(GetConsoleWindow(), WM_SYSKEYDOWN, VK_RETURN, 0x20000000);
+	ShowConsoleCursor(0);
+	//Remove_Scrollbars();
+	Matrix_Query();
 	return 0;
 }
