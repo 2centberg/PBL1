@@ -1,6 +1,7 @@
 #pragma once
 #include <exception>
-class NonSquare_Matrix : std::exception
+class NonSquare_Matrix : 
+	public std::exception
 {
 public:
 	NonSquare_Matrix() noexcept = default;

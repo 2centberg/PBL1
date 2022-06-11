@@ -1,6 +1,5 @@
 #pragma once
 void Matrix_Query();
-//const double &Rand_Double();
 void ShowConsoleCursor(bool showFlag);
 void Remove_Scrollbars();
 #include <Windows.h>
@@ -21,3 +20,4 @@ public:
 	PBL() noexcept = default;
 	~PBL() = default;
 };
+

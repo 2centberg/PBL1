@@ -6,6 +6,7 @@
 #include <conio.h>
 #include <iomanip>
 #include <sstream>
+#include <cwchar>
 #include "Matrix.hpp"
 constexpr double &&lower_bound = -1;
 constexpr double &&upper_bound = 1;
@@ -23,15 +24,6 @@ void ShowConsoleCursor(bool showFlag)
 	cursorInfo.bVisible = showFlag;
 	SetConsoleCursorInfo(hConsole, &cursorInfo);
 }
-void Remove_Scrollbars()
-{
-	CONSOLE_SCREEN_BUFFER_INFO screenBufferInfo;
-	GetConsoleScreenBufferInfo(hConsole, &screenBufferInfo);
-	COORD new_screen_buffer_size;
-	new_screen_buffer_size.X = screenBufferInfo.srWindow.Right - screenBufferInfo.srWindow.Left + 1;
-	new_screen_buffer_size.Y = screenBufferInfo.srWindow.Bottom - screenBufferInfo.srWindow.Top + 1;
-	SetConsoleScreenBufferSize(hConsole, new_screen_buffer_size);
-}
 void Intro()
 {
 	std::fstream INTRO("intro.txt", std::ios::in);
@@ -45,6 +37,23 @@ void Intro()
 			colour = 1;
 		}
 	}
+}
+void Outro()
+{
+	colour = 6;
+	std::fstream INTRO("outro.txt", std::ios::in);
+	std::string line;
+	while (std::getline(INTRO, line))
+	{
+		SetConsoleTextAttribute(hConsole, colour++);
+		std::cout << line << '\n';
+		if (colour == 16)
+		{
+			colour = 1;
+		}
+	}
+	char ch = _getch();
+	system("pause");
 }
 int str_to_int(const std::string &str)
 {
@@ -60,7 +69,7 @@ int str_to_int(const std::string &str)
 			throw Invalid_Input();
 		}
 		ans = ans * 10 + ch - '0';
-		if (ans > 1000000)
+		if (ans > 10000)
 		{
 			throw Too_Large_Matrix();
 		}
@@ -167,7 +176,7 @@ void Input()
 					std::cout << "Nhap so cot cua ma tran : " << PBL::Row_Size << std::endl;
 				}
 			}
-			if (PBL::Row_Size + PBL::Row_Size > 1000000 || PBL::Row_Size * PBL::Row_Size > 1000000)
+			if (PBL::Row_Size + PBL::Row_Size > 10000 || PBL::Row_Size * PBL::Row_Size > 10000)
 			{
 				SetConsoleTextAttribute(hConsole, 12);
 				std::cerr << Too_Large_Matrix().what() << std::endl;
@@ -186,7 +195,6 @@ void Input()
 		}
 	}
 };
-
 void Output()
 {
 	std::string selection;
@@ -218,7 +226,6 @@ void Output()
 	
 	PBL::Output_Selection = selection[0] - '0';
 }
-
 int Menu()
 {
 	Queue<std::string> Q;
@@ -400,19 +407,11 @@ void Triangular()
 	Output();
 	MT.Display();
 }
-void Linear_Equations()
-{
-	Input();
-}
-void Eigenvalues()
-{
-	Input();
-}
 void Matrix_Query()
 {
-	//Intro();
-	//char ch = _getch();
-	//system("cls");
+	Intro();
+	char ch = _getch();
+	system("cls");
 	while (true)
 	{
 		int selection = Menu();
@@ -434,12 +433,8 @@ void Matrix_Query()
 				Triangular();
 				break;
 			case 6:
-				Linear_Equations();
-				break;
-			case 7:
-				Eigenvalues();
-				break;
-			case 8:
+				system("cls");
+				Outro();
 				return;
 		}
 	}

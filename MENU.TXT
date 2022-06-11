@@ -3,6 +3,4 @@
 3. Chuyen vi
 4. Tim hang
 5. Chuyen ve ma tran bac thang
-6. Giai he phuong trinh tuyen tinh
-7. Tim gia tri rieng va vector rieng
-8. Thoat
+6. Thoat

@@ -64,6 +64,9 @@
     <Text Include="MENU.TXT">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="outro.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <None Include="MATRIX.IN">

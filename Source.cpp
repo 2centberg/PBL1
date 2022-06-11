@@ -6,7 +6,6 @@ int main()
 	ShowWindow(GetConsoleWindow(), SW_MAXIMIZE);
 	SendMessage(GetConsoleWindow(), WM_SYSKEYDOWN, VK_RETURN, 0x20000000);
 	ShowConsoleCursor(0);
-	//Remove_Scrollbars();
 	Matrix_Query();
 	return 0;
 }

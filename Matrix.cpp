@@ -1,10 +1,10 @@
 #include "Matrix.hpp"
 #include <random>
 Matrix::Matrix() : Number_Of_Col{0}, Number_Of_Row{0}, Container{0} {}
-
-Matrix::Matrix(const int &Number_Of_Row, const int &Number_Of_Col) : Number_Of_Col{Number_Of_Col}, Number_Of_Row{Number_Of_Row}
+Matrix::Matrix(const int &Number_Of_Row, const int &Number_Of_Col) 
+	: Number_Of_Col{Number_Of_Col}, Number_Of_Row{Number_Of_Row}
 {
-	if (Number_Of_Col * Number_Of_Row > 1000000)
+	if (Number_Of_Col * Number_Of_Row > 10000)
 	{
 		throw Too_Large_Matrix();
 	}
@@ -21,10 +21,10 @@ Matrix::Matrix(const int &Number_Of_Row, const int &Number_Of_Col) : Number_Of_C
 		throw Out_Of_Memory();
 	}
 }
-
-Matrix::Matrix(const int &Number_Of_Row, const int &Number_Of_Col, const bool &&Is_Identity_Matrix) : Number_Of_Col{Number_Of_Col}, Number_Of_Row{Number_Of_Row}
+Matrix::Matrix(const int &Number_Of_Row, const int &Number_Of_Col, const bool &&Is_Identity_Matrix) 
+	: Number_Of_Col{Number_Of_Col}, Number_Of_Row{Number_Of_Row}
 {
-	if (Number_Of_Row * Number_Of_Col > 1000000)
+	if (Number_Of_Row * Number_Of_Col > 10000)
 	{
 		throw Too_Large_Matrix();
 	}
@@ -56,7 +56,6 @@ Matrix::Matrix(const int &Number_Of_Row, const int &Number_Of_Col, const bool &&
 		throw Out_Of_Memory();
 	}
 }
-
 Matrix::~Matrix() noexcept
 {
 	if (Container)
@@ -71,7 +70,17 @@ Matrix::~Matrix() noexcept
 	Number_Of_Col = 0;
 	Number_Of_Row = 0;
 }
-
+bool isEmty(std::string str)
+{
+	for (int &&i{0}; i < str.length(); ++i)
+	{
+		if (isdigit(str[i]))
+		{
+			return 0;
+		}
+	}
+	return 1;
+}
 void Matrix::Init()
 {
 	this->~Matrix();
@@ -83,6 +92,10 @@ void Matrix::Init()
 		Queue<std::string> Q;
 		while (std::getline(INPUT_STREAM, element))
 		{
+			if (isEmty(element))
+			{
+				continue;
+			}
 			Q.Push(element);
 		}
 		INPUT_STREAM.close();
@@ -151,8 +164,6 @@ void Matrix::Init()
 		RAND_STREAM.close();
 	}
 }
-
-
 void Matrix::Display() noexcept
 {
 	if (PBL::Output_Selection == 1)
@@ -176,7 +187,7 @@ void Matrix::Display() noexcept
 
 			for (int &&j{0}; j < Number_Of_Col; ++j)
 			{
-				std::cout << std::setprecision(3) << std::fixed << std::setw(12) << Container[i][j];
+				std::cout << std::setw(12) << Container[i][j];
 			}
 			std::cout << std::endl;
 		}
@@ -194,7 +205,6 @@ void Matrix::Swap_Row(const int &Row_Index)
 	}
 	throw 0;
 }
-
 void Matrix::Reverse()
 {
 	if (Number_Of_Col != Number_Of_Row)
@@ -239,11 +249,13 @@ void Matrix::Reverse()
 				{
 					if (Col_Index <= Row_Index)
 					{
-						Unit_Matrix.Container[Another_Row][Col_Index] += Anchor_Point * Unit_Matrix.Container[Row_Index][Col_Index];
+						Unit_Matrix.Container[Another_Row][Col_Index] 
+							+= Anchor_Point * Unit_Matrix.Container[Row_Index][Col_Index];
 					}
 					else
 					{
-						Container[Another_Row][Col_Index] += Anchor_Point * Container[Row_Index][Col_Index];
+						Container[Another_Row][Col_Index] 
+							+= Anchor_Point * Container[Row_Index][Col_Index];
 					}
 				}
 				Container[Another_Row][Row_Index] = 0;
@@ -256,7 +268,6 @@ void Matrix::Reverse()
 	this->Number_Of_Row = this->Number_Of_Col = Unit_Matrix.Number_Of_Row;
 	Unit_Matrix.Container = 0;
 }
-
 double Matrix::Determinant()
 {
 	if (Number_Of_Col != Number_Of_Row)
@@ -274,7 +285,6 @@ double Matrix::Determinant()
 	}
 	return ans;
 }
-
 void Matrix::Transpose()
 {
 	Matrix Temp;
@@ -295,7 +305,6 @@ void Matrix::Transpose()
 	Number_Of_Col = Temp.Number_Of_Col;
 	Temp.Container = 0;
 }
-
 int Matrix::Rank()
 {
 	int &&ans{0};
@@ -323,7 +332,6 @@ int Matrix::Rank()
 	}
 	return ans;
 }
-
 void Matrix::Triangular()
 {
 	double Anchor_Point{0};
@@ -367,7 +375,6 @@ void Matrix::Triangular()
 		}
 	}
 }
-
 Matrix &Matrix::operator=(Matrix &&rhs) noexcept
 {
 	this->Container = rhs.Container;
