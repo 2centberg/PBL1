@@ -1,0 +1,2 @@
+@echo off
+project_by_learning.exe
