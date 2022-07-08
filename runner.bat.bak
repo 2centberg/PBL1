@@ -1,5 +1,0 @@
-@echo off
-x64
-Debug
-project_by_learning.exe
-@pause
