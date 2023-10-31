@@ -1,9 +1,20 @@
-# PBL1
-+ Đồ án lập trình tính toán
-# Đề tài :
-+ Tìm ma trận nghịch đảo
-# Sinh viên thực hiện :
-+ Nguyễn Đức Chung : 21TCLC_NHAT1, Đại học bách khoa Đà Nẵng
-+ Đặng Nhật Minh   : 21TCLC_NHAT1, Đại học bách khoa Đà Nẵng
-# Giảng viên hướng dẫn :
-+ TS. Nguyễn Văn Hiệu
+<h1>Project By Learning 1</h1>
+<p>Computational programming project</p>
+<h1>Topic: Matrix computer</h1>
+<h2>Support Operation</h2>
+<ul>
+  <li>Multiply/Add two matrix</li>
+  <li>Calculate rank</li>
+  <li>Calculate determinant</li>
+  <li>Transpose matrix</li>
+  <li>Inverse matrix</li>
+  <li>Diagonal matrix</li>
+  <li>Solve system of equations</li>
+</ul>
+<h1>Students</h1>
+<ul>
+  <li>Duc Chung Nguyen</li>
+  <li>Nhat Minh Dang</li>
+</ul>
+
+<h2>Instructor: Dr. Van Hieu Nguyen</h2>
